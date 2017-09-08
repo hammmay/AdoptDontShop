@@ -1,10 +1,10 @@
-# Restaurant Finder
+# Adopt - Dont Shop
 
 #### By Laura Hamilton
 
 ## Description
 
-This aprogram is an ongoing demonstration of Andoid app capabilites using Android Studio. A user can type in their zipcode and be taken to a list of restaurants.
+This aprogram is an ongoing demonstration of Andoid app capabilites using Android Studio. A user can type in their zipcode and be taken to a list of local pets.
 
 ## Technologies Used
 
