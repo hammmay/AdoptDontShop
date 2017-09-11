@@ -19,7 +19,7 @@ public class MyFriendsArrayAdapter extends ArrayAdapter {
     public Object getItem(int position) {
         String friend = mFriends[position];
         String type = mTypes[position];
-        return String.format("%s \nType of Friend - 981255%s", friend, type);
+        return String.format("%s \nType of Friend - %s", friend, type);
     }
 
     @Override
