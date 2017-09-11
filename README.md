@@ -14,6 +14,7 @@ This aprogram is an ongoing demonstration of Andoid app capabilites using Androi
 
 |Behavior - Plain English|Input|Output|
 |---|---|---|
+|User enters a zip code into the main activity page before pressing the "Find A New Friend" button, and is taken to a page where the pets are listed with a declaration of the entered zip code|User enters "97225" and presses the button|User is directed to a new page that displays their search results|
 
 ### Legal
 
