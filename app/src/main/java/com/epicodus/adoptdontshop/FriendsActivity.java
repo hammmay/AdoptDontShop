@@ -9,11 +9,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 public class FriendsActivity extends AppCompatActivity {
-    private TextView mLocationTextView;
-    private ListView mListView;
+    @Bind(R.id.locationTextView) TextView mLocationTextView;
+    @Bind(R.id.listView) ListView mListView;
+
     private String[] friends = new String[] {"Harry - Cat", "Fred - Dog",
             "Cheesis - Hamster", "Gary - Bird", "Sausage - Dog", "Franky - Dog",
             "Sock - Snake", "Wilber - Pig", "Memers - Cat", "Stinky - Rat",
@@ -24,6 +26,7 @@ public class FriendsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friends);
+        ButterKnife.bind(this);
 
         mListView = (ListView) findViewById(R.id.listView);
         mLocationTextView = (TextView) findViewById(R.id.locationTextView);

@@ -11,21 +11,24 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
-    private Button mFindFriendsButton;
-    private EditText mLocationEditText;
-    private TextView mAppNameTextView;
+    @Bind(R.id.findFriendsButton) Button mFindFriendsButton;
+    @Bind(R.id.locationEditText) EditText mLocationEditText;
+    @Bind(R.id.appNameTextView) TextView mAppNameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mAppNameTextView = (TextView) findViewById(R.id.appNameTextView);
+        ButterKnife.bind(this);
+
         Typeface pacificoFont = Typeface.createFromAsset(getAssets(), "fonts/pacifico.ttf");
         mAppNameTextView.setTypeface(pacificoFont);
-        mLocationEditText = (EditText) findViewById(R.id.locationEditText);
-        mFindFriendsButton = (Button) findViewById(R.id.findFriendsButton);
+
         mFindFriendsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
