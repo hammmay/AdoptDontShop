@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.epicodus.myrestaurants.MainActivity"
+    tools:context="com.epicodus.adoptdontshop.MainActivity"
     android:background="#000000">
 
     <ImageView
@@ -16,20 +16,20 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MyRestaurants"
-        android:layout_marginTop="35dp"
+        android:text="AdoptDontShop"
+        android:layout_marginTop="147dp"
         android:textColor="@color/colorTextIcons"
         android:textSize="45sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:textStyle="bold"
-        android:id="@+id/appNameTextView" />
+        android:id="@+id/appNameTextView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Find Restaurants"
-        android:id="@+id/findRestaurantsButton"
+        android:text="Find A New Friend"
+        android:id="@+id/findFriendsButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@color/colorAccent"
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/locationEditText"
         android:background="@color/colorTextIcons"
-        android:layout_above="@+id/findRestaurantsButton"
+        android:layout_above="@+id/findFriendsButton"
         android:layout_marginBottom="10dp"
         android:padding="5dp"
         android:hint="Enter Your Zip Code"

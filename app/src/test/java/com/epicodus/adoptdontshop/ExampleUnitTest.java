@@ -1,4 +1,4 @@
-package com.epicodus.myrestaurants;
+package com.epicodus.adoptdontshop;
 
 import org.junit.Test;
 

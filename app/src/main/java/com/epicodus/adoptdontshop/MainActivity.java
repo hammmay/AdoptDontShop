@@ -1,4 +1,4 @@
-package com.epicodus.myrestaurants;
+package com.epicodus.adoptdontshop;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 //    private static final String TAG = MainActivity.class.getSimpleName();
-    private Button mFindRestaurantsButton;
+    private Button mFindFriendsButton;
     private EditText mLocationEditText;
     private TextView mAppNameTextView;
 
@@ -26,12 +26,12 @@ public class MainActivity extends AppCompatActivity {
         Typeface pacificoFont = Typeface.createFromAsset(getAssets(), "fonts/pacifico.ttf");
         mAppNameTextView.setTypeface(pacificoFont);
         mLocationEditText = (EditText) findViewById(R.id.locationEditText);
-        mFindRestaurantsButton = (Button) findViewById(R.id.findRestaurantsButton);
-        mFindRestaurantsButton.setOnClickListener(new View.OnClickListener() {
+        mFindFriendsButton = (Button) findViewById(R.id.findFriendsButton);
+        mFindFriendsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String location = mLocationEditText.getText().toString();
-                Intent intent = new Intent(MainActivity.this, RestaurantsActivity.class);
+                Intent intent = new Intent(MainActivity.this, FriendsActivity.class);
                 intent.putExtra("location", location);
                 startActivity(intent);
             }
