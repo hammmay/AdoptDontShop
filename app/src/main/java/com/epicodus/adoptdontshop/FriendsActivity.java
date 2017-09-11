@@ -16,11 +16,17 @@ public class FriendsActivity extends AppCompatActivity {
     @Bind(R.id.locationTextView) TextView mLocationTextView;
     @Bind(R.id.listView) ListView mListView;
 
-    private String[] friends = new String[] {"Harry - Cat", "Fred - Dog",
-            "Cheesis - Hamster", "Gary - Bird", "Sausage - Dog", "Franky - Dog",
-            "Sock - Snake", "Wilber - Pig", "Memers - Cat", "Stinky - Rat",
-            "Sniffers - Bunny", "Tuxedo - Cat", "Muggers - Cat",
-            "CarrieB - Dog", "Elmer - Hamster", "Puddles - Dog"};
+    private String[] friends = new String[] {"Harry", "Fred",
+            "Cheesis", "Gary", "Sausage", "Franky",
+            "Sock", "Wilber", "Memers", "Stinky",
+            "Sniffers", "Tuxedo", "Muggers",
+            "CarrieB", "Elmer", "Puddles" };
+
+    private String[] types = new String[] {"Cat", "Dog",
+            "Hamster", "Bird", "Dog", "Dog",
+            "Snake", "Pig", "Cat", "Rat",
+            "Bunny", "Cat", "Cat",
+            "Dog", "Hamster", "Dog" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +37,8 @@ public class FriendsActivity extends AppCompatActivity {
         mListView = (ListView) findViewById(R.id.listView);
         mLocationTextView = (TextView) findViewById(R.id.locationTextView);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, friends);
+//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, friends);
+        MyFriendsArrayAdapter adapter = new MyFriendsArrayAdapter(this, android.R.layout.simple_list_item_1, friends, types);
         mListView.setAdapter(adapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -46,4 +53,6 @@ public class FriendsActivity extends AppCompatActivity {
         String location = intent.getStringExtra("location");
         mLocationTextView.setText("These friends are near: " + location);
     }
+
+
 }
