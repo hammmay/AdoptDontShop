@@ -25,19 +25,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Find A New Friend"
-        android:id="@+id/findFriendsButton"
-        android:background="@color/colorAccent"
-        android:textColor="@color/colorTextIcons"
-        android:paddingBottom="2dp"
-        android:layout_marginBottom="54dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,5 +36,36 @@
         android:hint="Enter A 5 Digit Zip Code"
         android:inputType="number"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find A New Friend"
+        android:textStyle="bold"
+        android:id="@+id/findFriendsButton"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorTextIcons"
+        android:paddingBottom="2dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:layout_marginBottom="70dp"
+        android:layout_above="@+id/missionButton"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/missionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Our Mission"
+        android:paddingBottom="2dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorTextIcons"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="11dp" />
+
 
 </RelativeLayout>
