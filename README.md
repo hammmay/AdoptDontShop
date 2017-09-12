@@ -14,7 +14,9 @@ This aprogram is an ongoing demonstration of Andoid app capabilites using Androi
 
 |Behavior - Plain English|Input|Output|
 |---|---|---|
+|User presses the "Our Mission" button, and is taken to a page where the mission statement is displayed|User presses the button|User is directed to a new page that displays the mission statement|
 |User enters a zip code into the main activity page before pressing the "Find A New Friend" button, and is taken to a page where the pets are listed with a declaration of the entered zip code|User enters "97225" and presses the button|User is directed to a new page that displays their search results for the 97225 area|
+|User presses the back arrow button on the friends list page, and is taken back to the homepage|User presses the arrow button on the friends list page|User is directed back to the homepage|
 
 ### Legal
 
