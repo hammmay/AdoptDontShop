@@ -35,10 +35,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v == mFindFriendsButton) {
+
             String location = mLocationEditText.getText().toString();
-            Intent intent = new Intent(MainActivity.this, FriendsActivity.class);
-            intent.putExtra("location", location);
-            startActivity(intent);
+            if( mLocationEditText.getText().toString().length() < 5 ) {
+                mLocationEditText.setError( "We can't find you a friend if we don't know where you are" );
+            }
+            else {
+                Intent intent = new Intent(MainActivity.this, FriendsActivity.class);
+                intent.putExtra("location", location);
+                startActivity(intent);
+            }
         }
     }
 }
