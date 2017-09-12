@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -19,17 +19,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.locationEditText) EditText mLocationEditText;
     @Bind(R.id.appNameTextView) TextView mAppNameTextView;
 
+    @Bind(R.id.findMissionButton) Button mFindMissionButton;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         ButterKnife.bind(this);
-
         Typeface pacificoFont = Typeface.createFromAsset(getAssets(), "fonts/pacifico.ttf");
         mAppNameTextView.setTypeface(pacificoFont);
-
         mFindFriendsButton.setOnClickListener(this);
+        mFindMissionButton.setOnClickListener(this);
     }
 
     @Override
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v == mFindFriendsButton) {
 
             String location = mLocationEditText.getText().toString();
-            if( mLocationEditText.getText().toString().length() < 5 ) {
+            if( mLocationEditText.getText().length() < 5 ) {
                 mLocationEditText.setError( "We can't find you a friend if we don't know where you are" );
             }
             else {
@@ -45,6 +46,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("location", location);
                 startActivity(intent);
             }
+        }
+        if(v == mFindMissionButton) {
+            Intent intent = new Intent(MainActivity.this, MissionActivity.class);
+            startActivity(intent);
         }
     }
 }

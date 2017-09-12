@@ -7,9 +7,12 @@ import com.epicodus.adoptdontshop.R;
 
 public class MissionActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mission);
+
+    //    Intent intent = getIntent();
     }
 }

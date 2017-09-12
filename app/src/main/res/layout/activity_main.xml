@@ -49,11 +49,11 @@
         android:paddingRight="15dp"
         android:paddingLeft="15dp"
         android:layout_marginBottom="70dp"
-        android:layout_above="@+id/missionButton"
+        android:layout_above="@+id/findMissionButton"
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/missionButton"
+        android:id="@+id/findMissionButton"
         android:layout_width="wrap_content"
         android:layout_height="35sp"
         android:text="Our Mission"
