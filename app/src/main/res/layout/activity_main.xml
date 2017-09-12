@@ -55,14 +55,15 @@
     <Button
         android:id="@+id/missionButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="35sp"
         android:text="Our Mission"
         android:paddingBottom="2dp"
         android:paddingRight="15dp"
         android:paddingLeft="15dp"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimary"
         android:textColor="@color/colorTextIcons"
         android:textStyle="bold"
+        android:textSize="12sp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="11dp" />
