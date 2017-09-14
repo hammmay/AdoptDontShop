@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -22,11 +23,11 @@ public class FriendsActivity extends AppCompatActivity {
             "Sniffers", "Tuxedo", "Muggers",
             "CarrieB", "Elmer", "Puddles" };
 
-    private String[] types = new String[] {"Cat", "Dog",
-            "Hamster", "Bird", "Dog", "Dog",
-            "Snake", "Pig", "Cat", "Rat",
-            "Bunny", "Cat", "Cat",
-            "Dog", "Hamster", "Dog" };
+//    private String[] types = new String[] {"Cat", "Dog",
+//            "Hamster", "Bird", "Dog", "Dog",
+//            "Snake", "Pig", "Cat", "Rat",
+//            "Bunny", "Cat", "Cat",
+//            "Dog", "Hamster", "Dog" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +35,12 @@ public class FriendsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_friends);
         ButterKnife.bind(this);
 
-        mListView = (ListView) findViewById(R.id.listView);
-        mLocationTextView = (TextView) findViewById(R.id.locationTextView);
+//        mListView = (ListView) findViewById(R.id.listView);
+//        mLocationTextView = (TextView) findViewById(R.id.locationTextView);
+//        MyFriendsArrayAdapter adapter = new MyFriendsArrayAdapter(this, android.R.layout.simple_list_item_1, friends, types);
 
-//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, friends);
-        MyFriendsArrayAdapter adapter = new MyFriendsArrayAdapter(this, android.R.layout.simple_list_item_1, friends, types);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, friends);
+
         mListView.setAdapter(adapter);
 
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
