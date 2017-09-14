@@ -23,7 +23,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.adoptdontshop.MainActivity"></meta-data>
         </activity>
-        <activity android:name=".MissionActivity"></activity>
+        <activity android:name=".MissionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.adoptdontshop.MainActivity"></meta-data>
+        </activity>
     </application>
 
 </manifest>
