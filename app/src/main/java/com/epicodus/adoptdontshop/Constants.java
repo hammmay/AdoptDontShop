@@ -1,6 +1,6 @@
 package com.epicodus.adoptdontshop;
 
 public class Constants {
-    public static final String ADOPTDONTSHOP_KEY = BuildConfig.ADOPTDONTSHOP_KEY;
-    public static final String ADOPTDONTSHOP_SECRET = BuildConfig.ADOPTDONTSHOP_SECRET;
+    public static final String PETFINDER_KEY = BuildConfig.PETFINDER_KEY;
+    public static final String PETFINDER_SECRET = BuildConfig.PETFINDER_SECRET;
 }
