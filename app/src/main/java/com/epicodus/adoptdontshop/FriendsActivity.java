@@ -3,6 +3,7 @@ package com.epicodus.adoptdontshop;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,10 +11,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class FriendsActivity extends AppCompatActivity {
+    public static final String TAG = FriendsActivity.class.getSimpleName();
+
     @Bind(R.id.locationTextView) TextView mLocationTextView;
     @Bind(R.id.listView) ListView mListView;
 
@@ -54,7 +62,29 @@ public class FriendsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
         mLocationTextView.setText("These friends are near: " + location);
+
+        getFriends(location);
+
     }
 
+    private void getFriends(String location) {
+        final PetFinderService petFinderService = new PetFinderService();
+        petFinderService.findFriends(location, new Callback() {
 
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    String jsonData = response.body().string();
+                    Log.v(TAG, jsonData);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 }

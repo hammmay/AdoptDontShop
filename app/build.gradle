@@ -11,7 +11,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.epicodus.myrestaurants"
+        applicationId "com.epicodus.adoptdontshop"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
