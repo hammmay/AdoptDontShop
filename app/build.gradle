@@ -27,8 +27,8 @@ android {
     }
 
     buildTypes.each {
-        it.buildConfigField 'String', 'PETFINDER_KEY', PetFinderKey
-        it.buildConfigField 'String', 'PETFINDER_SECRET', PetFinderSecret
+        it.buildConfigField 'String', 'PETFINDER_CONSUMER_KEY', PetFinderConsumerKey
+        it.buildConfigField 'String', 'PETFINDER_CONSUMER_SECRET', PetFinderConsumerSecret
     }
 }
 

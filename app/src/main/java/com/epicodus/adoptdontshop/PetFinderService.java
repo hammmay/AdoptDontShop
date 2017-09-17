@@ -11,9 +11,9 @@ import se.akerfeldt.okhttp.signpost.SigningInterceptor;
 public class PetFinderService {
 
     public static void findFriends(String location, Callback callback) {
-        OkHttpOAuthConsumer consumer = new OkHttpOAuthConsumer(Constants.PETFINDER_KEY, Constants.PETFINDER_SECRET);
+        OkHttpOAuthConsumer consumer = new OkHttpOAuthConsumer(Constants.PETFINDER_CONSUMER_KEY, Constants.PETFINDER_CONSUMER_SECRET);
 
-//        consumer.setTokenWithSecret(Constants.YELP_TOKEN, Constants.YELP_TOKEN_SECRET);
+//        consumer.setTokenWithSecret(Constants.PETFINDER_TOKEN, Constants.PETFINDER_TOKEN_SECRET);
 
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(new SigningInterceptor(consumer))
