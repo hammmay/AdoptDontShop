@@ -5,13 +5,13 @@ public class Friend {
     private String mAnimal;
     private String mBreed;
     private String mSize;
-    private Character mSex;
+    private String mSex;
     private String mAge;
     private String mPhoto;
-    private String mCity;
+    private String mZip;
 
     public Friend(String name, String animal, String breed, String size,
-                  Character sex, String age, String photo, String city) {
+                  String sex, String age, String photo, String zip) {
         this.mName = name;
         this.mAnimal = animal;
         this.mBreed = breed;
@@ -19,7 +19,7 @@ public class Friend {
         this.mSex = sex;
         this.mAge = age;
         this.mPhoto = photo;
-        this.mCity = city;
+        this.mZip = zip;
     }
 
     public String getName() {
@@ -38,7 +38,7 @@ public class Friend {
         return mSize;
     }
 
-    public Character getSex(){
+    public String getSex(){
         return mSex;
     }
 
@@ -50,7 +50,7 @@ public class Friend {
         return mPhoto;
     }
 
-    public String getCity() {
-        return mCity;
+    public String getZip() {
+        return mZip;
     }
 }

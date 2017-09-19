@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,6 +25,8 @@ public class FriendsActivity extends AppCompatActivity {
 
     @Bind(R.id.locationTextView) TextView mLocationTextView;
     @Bind(R.id.listView) ListView mListView;
+
+    public ArrayList<Friend> mFriends = new ArrayList<>();
 
     private String[] friends = new String[] {"Harry", "Fred",
             "Cheesis", "Gary", "Sausage", "Franky",
@@ -81,6 +84,7 @@ public class FriendsActivity extends AppCompatActivity {
                 try {
                     String jsonData = response.body().string();
                     Log.v(TAG, jsonData);
+                    mFriends = petFinderService.processResults(response);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
