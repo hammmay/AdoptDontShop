@@ -1,60 +1,56 @@
 package com.epicodus.adoptdontshop;
 
 public class Friend {
+    private String mName;
     private String mAnimal;
     private String mBreed;
     private String mSize;
     private Character mSex;
     private String mAge;
-    private String mOffset;
+    private String mPhoto;
+    private String mCity;
 
-    public Restaurant(String name, String phone, String website,
-                      double rating, String imageUrl, ArrayList<String> address,
-                      double latitude, double longitude, ArrayList<String> categories) {
+    public Friend(String name, String animal, String breed, String size,
+                  Character sex, String age, String photo, String city) {
         this.mName = name;
-        this.mPhone = phone;
-        this.mWebsite = website;
-        this.mRating = rating;
-        this.mImageUrl = imageUrl;
-        this.mAddress = address;
-        this.mLatitude = latitude;
-        this.mLongitude = longitude;
-        this.mCategories = categories;
+        this.mAnimal = animal;
+        this.mBreed = breed;
+        this.mSize = size;
+        this.mSex = sex;
+        this.mAge = age;
+        this.mPhoto = photo;
+        this.mCity = city;
     }
 
     public String getName() {
         return mName;
     }
 
-    public String getPhone() {
-        return mPhone;
+    public String getAnimal() {
+        return mAnimal;
     }
 
-    public String getWebsite() {
-        return  mWebsite;
+    public String getBreed() {
+        return  mBreed;
     }
 
-    public double getRating() {
-        return mRating;
+    public String getSize() {
+        return mSize;
     }
 
-    public String getImageUrl(){
-        return mImageUrl;
+    public Character getSex(){
+        return mSex;
     }
 
-    public ArrayList<String> getAddress() {
-        return mAddress;
+    public String getAge() {
+        return mAge;
     }
 
-    public double getLatitude() {
-        return mLatitude;
+    public String getPhoto() {
+        return mPhoto;
     }
 
-    public double getLongitude() {
-        return mLongitude;
-    }
-
-    public ArrayList<String> getCategories() {
-        return mCategories;
+    public String getCity() {
+        return mCity;
     }
 }
