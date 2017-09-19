@@ -28,39 +28,11 @@ public class FriendsActivity extends AppCompatActivity {
 
     public ArrayList<Friend> mFriends = new ArrayList<>();
 
-    private String[] friends = new String[] {"Harry", "Fred",
-            "Cheesis", "Gary", "Sausage", "Franky",
-            "Sock", "Wilber", "Memers", "Stinky",
-            "Sniffers", "Tuxedo", "Muggers",
-            "CarrieB", "Elmer", "Puddles" };
-
-//    private String[] types = new String[] {"Cat", "Dog",
-//            "Hamster", "Bird", "Dog", "Dog",
-//            "Snake", "Pig", "Cat", "Rat",
-//            "Bunny", "Cat", "Cat",
-//            "Dog", "Hamster", "Dog" };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friends);
         ButterKnife.bind(this);
-
-//        mListView = (ListView) findViewById(R.id.listView);
-//        mLocationTextView = (TextView) findViewById(R.id.locationTextView);
-//        MyFriendsArrayAdapter adapter = new MyFriendsArrayAdapter(this, android.R.layout.simple_list_item_1, friends, types);
-
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, friends);
-
-        mListView.setAdapter(adapter);
-
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String friend = ((TextView)view).getText().toString();
-                Toast.makeText(FriendsActivity.this, friend, Toast.LENGTH_LONG).show();
-            }
-        });
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
@@ -80,14 +52,34 @@ public class FriendsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    String jsonData = response.body().string();
-                    Log.v(TAG, jsonData);
-                    mFriends = petFinderService.processResults(response);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            public void onResponse(Call call, Response response) {
+                mFriends = petFinderService.processResults(response);
+
+                FriendsActivity.this.runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        String[] friendNames = new String[mFriends.size()];
+                        for (int i = 0; i < friendNames.length; i++) {
+                            friendNames[i] = mFriends.get(i).getName();
+                        }
+
+                        ArrayAdapter adapter = new ArrayAdapter(FriendsActivity.this,
+                                android.R.layout.simple_list_item_1, friendNames);
+                        mListView.setAdapter(adapter);
+
+                        for (Friend friend : mFriends) {
+                            Log.d(TAG, "Name: " + friend.getName());
+                            Log.d(TAG, "Animal: " + friend.getAnimal());
+                            Log.d(TAG, "Breed: " + friend.getBreed());
+                            Log.d(TAG, "Size: " + friend.getSize());
+                            Log.d(TAG, "Sex: " + friend.getSex());
+                            Log.d(TAG, "Age: " + friend.getAge());
+                            Log.d(TAG, "Photo: " + friend.getPhoto());
+                            Log.d(TAG, "Location: " + friend.getLocation());
+                        }
+                    }
+                });
             }
         });
     }
