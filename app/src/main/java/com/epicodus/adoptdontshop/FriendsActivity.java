@@ -52,36 +52,54 @@ public class FriendsActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onResponse(Call call, Response response) {
-                mFriends = petFinderService.processResults(response);
-
-                FriendsActivity.this.runOnUiThread(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        String[] friendNames = new String[mFriends.size()];
-                        for (int i = 0; i < friendNames.length; i++) {
-                            friendNames[i] = mFriends.get(i).getName();
-                        }
-
-                        ArrayAdapter adapter = new ArrayAdapter(FriendsActivity.this,
-                                android.R.layout.simple_list_item_1, friendNames);
-                        mListView.setAdapter(adapter);
-
-                        for (Friend friend : mFriends) {
-                            Log.d(TAG, "Name: " + friend.getName());
-                            Log.d(TAG, "Animal: " + friend.getAnimal());
-                            Log.d(TAG, "Breed: " + friend.getBreed());
-                            Log.d(TAG, "Size: " + friend.getSize());
-                            Log.d(TAG, "Sex: " + friend.getSex());
-                            Log.d(TAG, "Age: " + friend.getAge());
-                            Log.d(TAG, "Photo: " + friend.getPhoto());
-                            Log.d(TAG, "Location: " + friend.getLocation());
-//                            Log.d(TAG, "Pet: " + (friend.getLocation()));
-                        }
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    String jsonData = response.body().string();
+                    if (response.isSuccessful()) {
+                        Log.v(TAG, jsonData);
+                        mFriends = petFinderService.processResults(response);
                     }
-                });
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+
         });
     }
 }
+
+//            @Override
+//            public void onResponse(Call call, Response response) {
+//                mFriends = petFinderService.processResults(response);
+//
+//                FriendsActivity.this.runOnUiThread(new Runnable() {
+//
+//                    @Override
+//                    public void run() {
+//                        String[] friendNames = new String[mFriends.size()];
+//                        for (int i = 0; i < friendNames.length; i++) {
+//                            friendNames[i] = mFriends.get(i).getName();
+//                        }
+//
+//                        ArrayAdapter adapter = new ArrayAdapter(FriendsActivity.this,
+//                                android.R.layout.simple_list_item_1, friendNames);
+//                        mListView.setAdapter(adapter);
+//
+//                        for (Friend friend : mFriends) {
+//                            Log.d(TAG, "Name: " + friend.getName());
+//                            Log.d(TAG, "Animal: " + friend.getAnimal());
+//                            Log.d(TAG, "Size: " + friend.getSize());
+//                            Log.d(TAG, "Sex: " + friend.getSex());
+//                            Log.d(TAG, "Age: " + friend.getAge());
+////                            Log.d(TAG, "Photo: " + friend.getPhoto());
+////                            Log.d(TAG, "Breed: " + friend.getBreed());
+//                            Log.d(TAG, "Location: " + friend.getLocation());
+////                            Log.d(TAG, "Pet: " + (friend.getLocation()));
+//                        }
+//                    }
+//                });
+//            });
+//        };
+//    }
+//}
+
