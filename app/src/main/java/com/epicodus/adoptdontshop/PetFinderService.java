@@ -46,10 +46,17 @@ public class PetFinderService {
         try {
             String jsonData = response.body().string();
             if (response.isSuccessful()) {
-                JSONObject petFinderJSON = new JSONObject(jsonData);
-                JSONArray petsJSON = petFinderJSON.getJSONArray("pets");
-                for (int i = 0; i < petsJSON.length(); i++) {
-                    JSONObject friendJSON = petsJSON.getJSONObject(i);
+
+                JSONObject readerJSON = new JSONObject(jsonData)
+
+                JSONObject petFinderJSON = readerJSON.getJSONObject("petfinder");
+
+                JSONObject petsJSON = petFinderJSON.getJSONObject("pets");
+
+                JSONArray petJSON = petFinderJSON.getJSONArray("pet");
+
+                for (int i = 0; i < petJSON.length(); i++) {
+                    JSONObject friendJSON = petJSON.getJSONObject(i);
                     String name = friendJSON.optString("name", "No name yet");
                     String animal = friendJSON.getString("animal");
                     String breed = friendJSON.optString("breed", "No known breed");

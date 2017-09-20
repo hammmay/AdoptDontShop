@@ -77,6 +77,7 @@ public class FriendsActivity extends AppCompatActivity {
                             Log.d(TAG, "Age: " + friend.getAge());
                             Log.d(TAG, "Photo: " + friend.getPhoto());
                             Log.d(TAG, "Location: " + friend.getLocation());
+//                            Log.d(TAG, "Pet: " + (friend.getLocation()));
                         }
                     }
                 });

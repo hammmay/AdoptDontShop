@@ -51,4 +51,5 @@ public class Friend {
     public String getLocation() {
         return mLocation;
     }
+
 }
