@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Friend {
     private String mName;
     private String mAnimal;
-    private String mLocation;
+    private String mZip;
     private String mSize;
     private String mSex;
     private String mAge;
@@ -13,12 +13,12 @@ public class Friend {
 //    private String mBreed;
 
     public Friend(String name, String animal, String size,
-                  String sex, String age, String location
+                  String sex, String age, String zip
 //            , ArrayList<String> imageURL, String breed
     ) {
         this.mName = name;
         this.mAnimal = animal;
-        this.mLocation = location;
+        this.mZip = zip;
         this.mSize = size;
         this.mSex = sex;
         this.mAge = age;
@@ -32,8 +32,8 @@ public class Friend {
 
     public String getAnimal() { return mAnimal; }
 
-    public String getLocation() {
-        return mLocation;
+    public String getZip() {
+        return mZip;
     }
 
     public String getSize() {
