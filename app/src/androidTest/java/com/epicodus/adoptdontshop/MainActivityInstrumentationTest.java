@@ -2,6 +2,8 @@ package com.epicodus.adoptdontshop;
 
 import android.support.test.rule.ActivityTestRule;
 
+import com.epicodus.adoptdontshop.ui.MainActivity;
+
 import org.junit.Rule;
 import org.junit.Test;
 

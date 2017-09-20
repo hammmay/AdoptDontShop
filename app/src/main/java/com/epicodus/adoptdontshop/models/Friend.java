@@ -1,4 +1,4 @@
-package com.epicodus.adoptdontshop;
+package com.epicodus.adoptdontshop.models;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,9 @@
-package com.epicodus.adoptdontshop;
+package com.epicodus.adoptdontshop.services;
 
 import android.util.Log;
+
+import com.epicodus.adoptdontshop.Constants;
+import com.epicodus.adoptdontshop.models.Friend;
 
 import org.json.JSONArray;
 import org.json.JSONException;

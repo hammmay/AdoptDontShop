@@ -3,6 +3,8 @@ package com.epicodus.adoptdontshop;
 import android.support.test.rule.ActivityTestRule;
 import android.view.View;
 
+import com.epicodus.adoptdontshop.ui.FriendsActivity;
+
 import org.junit.Rule;
 import org.junit.Test;
 
