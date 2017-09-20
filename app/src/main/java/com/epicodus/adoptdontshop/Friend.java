@@ -1,25 +1,29 @@
 package com.epicodus.adoptdontshop;
 
+import java.util.ArrayList;
+
 public class Friend {
     private String mName;
     private String mAnimal;
-    private String mBreed;
+    private String mLocation;
     private String mSize;
     private String mSex;
     private String mAge;
-    private String mPhoto;
-    private String mLocation;
+//    private ArrayList<String> mImageURL = new ArrayList<>();
+//    private String mBreed;
 
-    public Friend(String name, String animal, String breed, String size,
-                  String sex, String age, String photo, String location) {
+    public Friend(String name, String animal, String size,
+                  String sex, String age, String location
+//            , ArrayList<String> imageURL, String breed
+    ) {
         this.mName = name;
         this.mAnimal = animal;
-        this.mBreed = breed;
+        this.mLocation = location;
         this.mSize = size;
         this.mSex = sex;
         this.mAge = age;
-        this.mPhoto = photo;
-        this.mLocation = location;
+//        this.mImageURL = imageURL;
+//        this.mBreed = breed;
     }
 
     public String getName() {
@@ -28,8 +32,8 @@ public class Friend {
 
     public String getAnimal() { return mAnimal; }
 
-    public String getBreed() {
-        return  mBreed;
+    public String getLocation() {
+        return mLocation;
     }
 
     public String getSize() {
@@ -44,12 +48,12 @@ public class Friend {
         return mAge;
     }
 
-    public String getPhoto() {
-        return mPhoto;
-    }
-
-    public String getLocation() {
-        return mLocation;
-    }
+//    public ArrayList<String> getImageURL() {
+//        return mImageURL;
+//    }
+//
+//    public String getBreed() {
+//        return  mBreed;
+//    }
 
 }

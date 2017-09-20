@@ -47,32 +47,43 @@ public class PetFinderService {
             String jsonData = response.body().string();
             if (response.isSuccessful()) {
 
-                JSONObject readerJSON = new JSONObject(jsonData)
+                JSONObject readerJSON = new JSONObject(jsonData);
 
                 JSONObject petFinderJSON = readerJSON.getJSONObject("petfinder");
 
                 JSONObject petsJSON = petFinderJSON.getJSONObject("pets");
 
-                JSONArray petJSON = petFinderJSON.getJSONArray("pet");
+                JSONArray petJSON = petsJSON.getJSONArray("pet");
 
                 for (int i = 0; i < petJSON.length(); i++) {
                     JSONObject friendJSON = petJSON.getJSONObject(i);
-                    String name = friendJSON.optString("name", "No name yet");
-                    String animal = friendJSON.getString("animal");
-                    String breed = friendJSON.optString("breed", "No known breed");
-                    String size = friendJSON.optString("size", "Size unknown");
-                    String sex = friendJSON.optString("sex", "Sex unknown");
-                    String age = friendJSON.optString("age", "Age unknown");
-                    String photo = friendJSON.getString("photo");
-                    String zip = friendJSON.optString("zip", "Zip code unknown");
+                    String name = friendJSON.getJSONObject("name").getString("$t");
+                    String animal = friendJSON.getJSONObject("animal").getString("$t");
+                    String size = friendJSON.getJSONObject("size").getString("$t");
+                    String sex = friendJSON.getJSONObject("sex").getString("$t");
+                    String age = friendJSON.getJSONObject("age").getString("$t");
+                    String zip = friendJSON.getJSONObject("contact").getJSONObject("zip").getString("$t");
 
-                    ArrayList<String> pet = new ArrayList<>();
-                    JSONArray petJSON = friendJSON.getJSONArray("pet");
 
-                    for (int y = 0; y < petJSON.length(); y++) {
-                        pet.add(petJSON.getJSONArray(y).get(0).toString());
-                    }
-                    Friend friend = new Friend(name, animal, breed, size, sex, age, photo, zip);
+//                    Breed and photo arrays
+//                      ArrayList<String> breed = new ArrayList<>();
+//                    JSONArray breedJSON = friendJSON.getJSONObject("breeds").getJSONArray("breed").getString("$t");
+//                    -missing for loop, but a conditional stattement is needed because the breed list is not always an array
+//                    for (int y = 0; y < addressJSON.length(); y++) {
+//                        address.add(addressJSON.get(y).toString());
+//                    }
+//
+//                    ArrayList<String> imageURLJSON = new ArrayList<>();
+//                    JSONObject mediaJSON = imageURLJSON.getJSONObject("media");
+//                    JSONArray imageURLJSON = friendJSON.getJSONObject("")
+//                            .getJSONArray(photo);
+//
+//                    for (int y = 0; y < petJSON.length(); y++) {
+//                        pet.add(petJSON.getJSONArray(y).get(0).toString());
+//                    }
+
+
+                    Friend friend = new Friend(name, animal, size, sex, age, zip);
                     friends.add(friend);
                 }
             }
