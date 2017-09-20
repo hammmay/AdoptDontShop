@@ -3,12 +3,15 @@ package com.epicodus.adoptdontshop.ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.epicodus.adoptdontshop.R;
+import com.epicodus.adoptdontshop.adapters.FriendListAdapter;
 import com.epicodus.adoptdontshop.models.Friend;
 import com.epicodus.adoptdontshop.services.PetFinderService;
 
@@ -24,8 +27,8 @@ import okhttp3.Response;
 public class FriendsActivity extends AppCompatActivity {
     public static final String TAG = FriendsActivity.class.getSimpleName();
 
-    @Bind(R.id.locationTextView) TextView mLocationTextView;
-    @Bind(R.id.listView) ListView mListView;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    private FriendListAdapter mAdapter;;
 
     public ArrayList<Friend> mFriends = new ArrayList<>();
 
@@ -37,7 +40,6 @@ public class FriendsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
-        mLocationTextView.setText("These friends are near: " + location);
 
         getFriends(location);
 
@@ -60,26 +62,15 @@ public class FriendsActivity extends AppCompatActivity {
 
                     @Override
                     public void run() {
-                        String[] friendNames = new String[mFriends.size()];
-                        for (int i = 0; i < friendNames.length; i++) {
-                            friendNames[i] = mFriends.get(i).getName();
-                        }
-
-                        ArrayAdapter adapter = new ArrayAdapter(FriendsActivity.this,
-                                android.R.layout.simple_list_item_1, friendNames);
-                        mListView.setAdapter(adapter);
-
-                        for (Friend friend : mFriends) {
-                            Log.d(TAG, "Name: " + friend.getName());
-                            Log.d(TAG, "Animal: " + friend.getAnimal());
-                            Log.d(TAG, "Zip: " + friend.getZip());
-                            Log.d(TAG, "Size: " + friend.getSize());
-                            Log.d(TAG, "Sex: " + friend.getSex());
-                            Log.d(TAG, "Age: " + friend.getAge());
-                        }
+                        mAdapter = new FriendListAdapter(getApplicationContext(), mFriends);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager =
+                                new LinearLayoutManager(FriendsActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
                     }
                 });
-            };
+            }
         });
     }
 }
