@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mLocationEditText.setError( "We can't find you a friend if we don't know where you are" );
             }
             else {
-                Intent intent = new Intent(MainActivity.this, FriendsActivity.class);
+                Intent intent = new Intent(MainActivity.this, FriendsListActivity.class);
                 intent.putExtra("location", location);
                 startActivity(intent);
             }

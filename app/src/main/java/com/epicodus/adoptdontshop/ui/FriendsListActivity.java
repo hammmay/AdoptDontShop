@@ -5,10 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.epicodus.adoptdontshop.R;
 import com.epicodus.adoptdontshop.adapters.FriendListAdapter;
@@ -24,8 +20,8 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class FriendsActivity extends AppCompatActivity {
-    public static final String TAG = FriendsActivity.class.getSimpleName();
+public class FriendsListActivity extends AppCompatActivity {
+    public static final String TAG = FriendsListActivity.class.getSimpleName();
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private FriendListAdapter mAdapter;;
@@ -58,14 +54,14 @@ public class FriendsActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) {
                 mFriends = petFinderService.processResults(response);
 
-                FriendsActivity.this.runOnUiThread(new Runnable() {
+                FriendsListActivity.this.runOnUiThread(new Runnable() {
 
                     @Override
                     public void run() {
                         mAdapter = new FriendListAdapter(getApplicationContext(), mFriends);
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager =
-                                new LinearLayoutManager(FriendsActivity.this);
+                                new LinearLayoutManager(FriendsListActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
                     }

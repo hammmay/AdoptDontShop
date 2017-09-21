@@ -3,7 +3,7 @@ package com.epicodus.adoptdontshop;
 import android.support.test.rule.ActivityTestRule;
 import android.view.View;
 
-import com.epicodus.adoptdontshop.ui.FriendsActivity;
+import com.epicodus.adoptdontshop.ui.FriendsListActivity;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -21,15 +21,15 @@ import static org.hamcrest.core.IsNot.not;
 public class FriendsActivityInstrumentationTest {
 
     @Rule
-    public ActivityTestRule<FriendsActivity> activityTestRule =
-            new ActivityTestRule<>(FriendsActivity.class);
+    public ActivityTestRule<FriendsListActivity> activityTestRule =
+            new ActivityTestRule<>(FriendsListActivity.class);
 
     @Test
     public void listItemClickDisplaysToastWithCorrectFriend() {
         View activityDecorView = activityTestRule.getActivity().getWindow().getDecorView();
         String friendName = "Harry - Cat";
         onData(anything())
-                .inAdapterView(withId(R.id.listView))
+//                .inAdapterView(withId(R.id.listView))
                 .atPosition(0)
                 .perform(click());
         onView(withText(friendName)).inRoot(withDecorView(not(activityDecorView)))
