@@ -68,22 +68,39 @@ public class PetFinderService {
                     String zip = friendJSON.getJSONObject("contact").getJSONObject("zip").getString("$t");
 
 
-//                    Breed and photo arrays
-//                      ArrayList<String> breed = new ArrayList<>();
-//                    JSONArray breedJSON = friendJSON.getJSONObject("breeds").getJSONArray("breed").getString("$t");
-//                    -missing for loop, but a conditional stattement is needed because the breed list is not always an array
-//                    for (int y = 0; y < addressJSON.length(); y++) {
-//                        address.add(addressJSON.get(y).toString());
-//                    }
-//
-//                    ArrayList<String> imageURLJSON = new ArrayList<>();
-//                    JSONObject mediaJSON = imageURLJSON.getJSONObject("media");
-//                    JSONArray imageURLJSON = friendJSON.getJSONObject("")
-//                            .getJSONArray(photo);
-//
-//                    for (int y = 0; y < petJSON.length(); y++) {
-//                        pet.add(petJSON.getJSONArray(y).get(0).toString());
-//                    }
+//Photo array
+                    ArrayList<String> imageURL = new ArrayList<>();
+                    JSONArray photoJSON = friendJSON.getJSONObject("media").getJSONObject("photos").getJSONArray("photo").(you've put all the image urls into an array, but you really only need one link, so
+                    before getString that will collect the url, you need to specify which one, number 0 on the list) getString("$t");
+                        .getJSONArray("photo");
+
+                    for (int y = 0; y < photoJSON.length(); y++) {
+                        photo.add(photoJSON.get(y).toString());
+                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    for (int y = 0; y < petJSON.length(); y++) {
+                        pet.add(petJSON.getJSONArray(y).get(0).toString());
+                    }
 
 
                     Friend friend = new Friend(name, animal, size, sex, age, zip);
