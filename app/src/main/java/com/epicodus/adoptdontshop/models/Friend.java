@@ -9,18 +9,21 @@ public class Friend {
     private String mSize;
     private String mSex;
     private String mAge;
-    private ArrayList<String> mImageURL = new ArrayList<>();
-
+//    private ArrayList<String> mImageURL = new ArrayList<>();
+//    private String mBreed;
 
     public Friend(String name, String animal, String size,
-                  String sex, String age, String zip, ArrayList<String> imageURL) {
+                  String sex, String age, String zip
+//            , ArrayList<String> imageURL, String breed
+    ) {
         this.mName = name;
         this.mAnimal = animal;
         this.mZip = zip;
         this.mSize = size;
         this.mSex = sex;
         this.mAge = age;
-        this.mImageURL = imageURL;
+//        this.mImageURL = imageURL;
+//        this.mBreed = breed;
     }
 
     public String getName() {
@@ -45,5 +48,12 @@ public class Friend {
         return mAge;
     }
 
-    public ArrayList<String> getImageURL() { return mImageURL; }
+//    public ArrayList<String> getImageURL() {
+//        return mImageURL;
+//    }
+//
+//    public String getBreed() {
+//        return  mBreed;
+//    }
+
 }
