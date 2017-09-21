@@ -56,6 +56,7 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Fr
         }
 
         public void bindFriend(Friend friend) {
+// picasso image loader            Picasso.with(mContext).load(friend.getImageUrl()).into(mFriendImageView);
             mNameTextView.setText(friend.getName());
             mAnimalTextView.setText(friend.getAnimal());
             mAgeTextView.setText("Age: " + friend.getAge());
