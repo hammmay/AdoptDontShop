@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:id="@+id/friendImageView"
-            android:src="@drawable/background"
+            android:src="@drawable/petplaceholder"
             android:scaleType="centerCrop" />
 
         <RelativeLayout
