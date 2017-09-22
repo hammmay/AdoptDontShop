@@ -68,23 +68,23 @@ public class PetFinderService {
                     String zip = friendJSON.getJSONObject("contact").getJSONObject("zip").getString("$t");
 
 
-//Photo array
+// Photo array
 //                    ArrayList<String> imageURL = new ArrayList<>();
-//                    JSONArray photoJSON = friendJSON.getJSONObject("media").getJSONObject("photos").getJSONArray("photo").(you've put all the image urls into an array, but you really only need one link, so
-//                    before getString that will collect the url, you need to specify which one, number 0 on the list) getString("$t");
+//                    JSONArray photoJSON = friendJSON.getJSONArray("photo");
+//                      (you've put all the image urls into an array, but you really only need one link, so
+//                    before getString that will collect the url, you need to specify which one, number 0 on the list) getLength().get(0).getString("$t");
 //                        .getJSONArray("photo");
-//
+
 //                    for (int y = 0; y < photoJSON.length(); y++) {
-//                        photo.add(photoJSON.get(y).toString());
-//                    }
-
-//                    for (int y = 0; y < petJSON.length(); y++) {
-//                        pet.add(petJSON.getJSONArray(y).get(0).toString());
+//                        imageURL.add(photoJSON.getJSONArray(y).get(0).toString());
 //                    }
 
 
-                    Friend friend = new Friend(name, animal, size, sex, age, zip);
+                    Friend friend = new Friend(name, animal, size, sex, age, zip
+// , imageURL
+ );
                     friends.add(friend);
+
                 }
             }
         } catch (IOException e) {
