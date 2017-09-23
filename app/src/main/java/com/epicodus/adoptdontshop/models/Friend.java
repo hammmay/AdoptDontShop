@@ -9,6 +9,7 @@ public class Friend {
     private String mSize;
     private String mSex;
     private String mAge;
+    private String mEmail;
 //    private String mImageURL;
 // or    private ArrayList<String> mImageURL = new ArrayList<>();
 
