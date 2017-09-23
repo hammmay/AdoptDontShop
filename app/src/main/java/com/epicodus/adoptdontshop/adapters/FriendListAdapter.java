@@ -45,8 +45,8 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Fr
     public class FriendViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.friendImageView) ImageView mFriendImageView;
         @Bind(R.id.friendNameTextView) TextView mNameTextView;
-        @Bind(R.id.animalTextView) TextView mAnimalTextView;
         @Bind(R.id.ageTextView) TextView mAgeTextView;
+        @Bind(R.id.animalTextView) TextView mAnimalTextView;
         private Context mContext;
 
         public FriendViewHolder(View itemView) {
@@ -58,11 +58,8 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Fr
         public void bindFriend(Friend friend) {
 // picasso image loader            Picasso.with(mContext).load(friend.getImageUrl()).into(mFriendImageView);
             mNameTextView.setText(friend.getName());
-            mAnimalTextView.setText(friend.getAnimal());
             mAgeTextView.setText("Age: " + friend.getAge());
+            mAnimalTextView.setText(friend.getAnimal());
         }
     }
 }
-
-//category = animal?
-//was address

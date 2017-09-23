@@ -66,21 +66,12 @@ public class PetFinderService {
                     String sex = friendJSON.getJSONObject("sex").getString("$t");
                     String age = friendJSON.getJSONObject("age").getString("$t");
                     String zip = friendJSON.getJSONObject("contact").getJSONObject("zip").getString("$t");
+                    String email = friendJSON.getJSONObject("contact").getJSONObject("email").getString("$t");
+
+// Missing Photo array
 
 
-// Photo array
-//                    ArrayList<String> imageURL = new ArrayList<>();
-//                    JSONArray photoJSON = friendJSON.getJSONArray("photo");
-//                      (you've put all the image urls into an array, but you really only need one link, so
-//                    before getString that will collect the url, you need to specify which one, number 0 on the list) getLength().get(0).getString("$t");
-//                        .getJSONArray("photo");
-
-//                    for (int y = 0; y < photoJSON.length(); y++) {
-//                        imageURL.add(photoJSON.getJSONArray(y).get(0).toString());
-//                    }
-
-
-                    Friend friend = new Friend(name, animal, size, sex, age, zip
+                    Friend friend = new Friend(name, animal, size, sex, age, zip, email
 // , imageURL
  );
                     friends.add(friend);

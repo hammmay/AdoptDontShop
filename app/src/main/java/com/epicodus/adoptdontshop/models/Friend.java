@@ -15,7 +15,7 @@ public class Friend {
 
 
     public Friend(String name, String animal, String size,
-                  String sex, String age, String zip
+                  String sex, String age, String zip, String email
 //            , ArrayList<String> imageURL
     ) {
         this.mName = name;
@@ -24,6 +24,7 @@ public class Friend {
         this.mSize = size;
         this.mSex = sex;
         this.mAge = age;
+        this.mEmail = email;
 //        this.mImageURL = imageURL.get(0);
     }
 
@@ -47,6 +48,10 @@ public class Friend {
 
     public String getAge() {
         return mAge;
+    }
+
+    public String getEmail() {
+        return mEmail;
     }
 
 //    public ArrayList<String> getImageURL() {
