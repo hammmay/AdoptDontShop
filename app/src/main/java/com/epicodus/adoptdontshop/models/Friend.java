@@ -1,18 +1,21 @@
 package com.epicodus.adoptdontshop.models;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 
+@Parcel
 public class Friend {
-    private String mName;
-    private String mAnimal;
-    private String mZip;
-    private String mSize;
-    private String mSex;
-    private String mAge;
-    private String mEmail;
-//    private String mImageURL;
-// or    private ArrayList<String> mImageURL = new ArrayList<>();
+    String mName;
+    String mAnimal;
+    String mZip;
+    String mSize;
+    String mSex;
+    String mAge;
+    String mEmail;
+//    ArrayList<String> mImageURL = new ArrayList<>();
 
+    public Friend() {}
 
     public Friend(String name, String animal, String size,
                   String sex, String age, String zip, String email

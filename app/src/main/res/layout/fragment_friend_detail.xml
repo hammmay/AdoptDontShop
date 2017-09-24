@@ -79,8 +79,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="View Online"
-                    android:id="@+id/websiteTextView"
+                    android:text="Ask About This Friend"
+                    android:id="@+id/emailTextView"
                     android:drawableLeft="@drawable/ic_email_white_24dp"
                     android:drawablePadding="4dp"
                     android:textColor="@color/colorTextIcons"
@@ -88,7 +88,6 @@
                     android:textStyle="bold"
                     android:layout_marginBottom="10dp"
                     android:gravity="center" />
-                <!--fragment doesn't pop yet at this stage android:drawableLeft="@drawable/ic_email_white_24dp"-->
 
             </LinearLayout>
 
