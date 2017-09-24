@@ -19,9 +19,7 @@ import org.parceler.Parcels;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class FriendDetailFragment extends Fragment
-        //implements View.OnClickListener
-        {
+public class FriendDetailFragment extends Fragment implements View.OnClickListener {
     @Bind(R.id.friendImageView) ImageView mImageLabel;
     @Bind(R.id.friendNameTextView) TextView mNameLabel;
     @Bind(R.id.animalTextView) TextView mAnimalLabel;
@@ -56,26 +54,20 @@ public class FriendDetailFragment extends Fragment
         mAnimalLabel.setText(mFriend.getAnimal());
         mAgeLabel.setText("Age: " + mFriend.getAge());
 
-
-//        mCategoriesLabel.setText(android.text.TextUtils.join(", ", mFriend.getCategories()));
-//        mRatingLabel.setText(Double.toString(mFriend.getRating()) + "/5");
-//        mPhoneLabel.setText(mFriend.getPhone());
-//        mAddressLabel.setText(android.text.TextUtils.join(", ", mFriend.getAddress()));
-
-//        mEmailLabel.setOnClickListener(this);
+        mEmailLabel.setOnClickListener(this);
 
         return view;
     }
 
-//    @Override
-//    public void onClick(View v) {
-//        if (v == mEmailLabel) {
-//            Intent emailIntent = new Intent(Intent.ACTION_VIEW,
-//                    Uri.parse("mailto:" + mFriend.getEmail()));
-//            startActivity(emailIntent);
-//        }
-//
-//    }
+    @Override
+    public void onClick(View v) {
+        if (v == mEmailLabel) {
+            Intent emailIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("mailto:" + mFriend.getEmail()));
+            startActivity(emailIntent);
+        }
+
+    }
 
 
 
