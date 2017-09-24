@@ -68,11 +68,23 @@ public class PetFinderService {
                     String zip = friendJSON.getJSONObject("contact").getJSONObject("zip").getString("$t");
                     String email = friendJSON.getJSONObject("contact").getJSONObject("email").getString("$t");
 
+
 // Missing Photo array
+
+                    JSONArray imageURLJSON = friendJSON.getJSONObject("media").getJSONObject("photos").getJSONArray("photo");
+                       .getLength().get(0).getString("$t");
+                        .getJSONArray("photo");
+
+                    ArrayList<String> imageURL = new ArrayList<>();
+                    for (int y = 0; y < photoJSON.length(); y++) {
+                        imageURL.add(photoJSON.getJSONArray(y).get(0).toString());
+                    }
+// Photo array
+
 
 
                     Friend friend = new Friend(name, animal, size, sex, age, zip, email
-// , imageURL
+ , imageURL
  );
                     friends.add(friend);
 
