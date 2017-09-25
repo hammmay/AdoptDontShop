@@ -22,6 +22,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.FriendViewHolder> {
+
+//    private static final int MAX_WIDTH = 200;
+//    private static final int MAX_HEIGHT = 200;
+
     private ArrayList<Friend> mFriends = new ArrayList<>();
     private Context mContext;
 
@@ -72,6 +76,13 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Fr
         }
 
         public void bindFriend(Friend friend) {
+
+//            Picasso.with(mContext)
+//                    .load(friend.getImageURL())
+//                    .resize(MAX_WIDTH, MAX_HEIGHT)
+//                    .centerCrop()
+//                    .into(mFriendImageView);
+
             mNameTextView.setText(friend.getName());
             mAgeTextView.setText("Age: " + friend.getAge());
             mAnimalTextView.setText(friend.getAnimal());

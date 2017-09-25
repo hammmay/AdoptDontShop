@@ -29,6 +29,9 @@ public class FriendDetailFragment extends Fragment implements View.OnClickListen
     @Bind(R.id.emailTextView) TextView mEmailLabel;
     @Bind(R.id.saveFriendButton) TextView mSaveFriendButton;
 
+//    private static final int MAX_WIDTH = 400;
+//    private static final int MAX_HEIGHT = 300;
+
     private Friend mFriend;
 
     public static FriendDetailFragment newInstance(Friend friend) {
@@ -49,6 +52,12 @@ public class FriendDetailFragment extends Fragment implements View.OnClickListen
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_friend_detail, container, false);
         ButterKnife.bind(this, view);
+
+//        Picasso.with(view.getContext())
+//                .load(mFriend.getImageURL())
+//                .resize(MAX_WIDTH, MAX_HEIGHT)
+//                .centerCrop()
+//                .into(mImageLabel);
 
         ArrayList<String> ImageURLList = (mFriend.getImageURL());
         Picasso.with(view.getContext()).load(ImageURLList.get(0)).into(mImageLabel);
