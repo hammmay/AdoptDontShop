@@ -12,9 +12,11 @@ import android.widget.TextView;
 
 import com.epicodus.adoptdontshop.R;
 import com.epicodus.adoptdontshop.models.Friend;
-//import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
+
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -48,7 +50,8 @@ public class FriendDetailFragment extends Fragment implements View.OnClickListen
         View view = inflater.inflate(R.layout.fragment_friend_detail, container, false);
         ButterKnife.bind(this, view);
 
-//        Picasso.with(view.getContext()).load(mFriend.getImageUrl()).into(mImageLabel);
+        ArrayList<String> ImageURLList = (mFriend.getImageURL());
+        Picasso.with(view.getContext()).load(ImageURLList.get(0)).into(mImageLabel);
 
         mNameLabel.setText(mFriend.getName());
         mAnimalLabel.setText(mFriend.getAnimal());

@@ -69,23 +69,33 @@ public class PetFinderService {
                     String email = friendJSON.getJSONObject("contact").getJSONObject("email").getString("$t");
 
 
-// Missing Photo array
-
-                    JSONArray imageURLJSON = friendJSON.getJSONObject("media").getJSONObject("photos").getJSONArray("photo");
-                       .getLength().get(0).getString("$t");
-                        .getJSONArray("photo");
-
+// Photo array
+// 9/24
+                    JSONObject mediaJSON = friendJSON.getJSONObject("media");
+                    JSONObject photosJSON = mediaJSON.getJSONObject("photos");
+                    JSONArray photoJSON = photosJSON.getJSONArray("photo");
                     ArrayList<String> imageURL = new ArrayList<>();
                     for (int y = 0; y < photoJSON.length(); y++) {
-                        imageURL.add(photoJSON.getJSONArray(y).get(0).toString());
+                        imageURL.add(photoJSON.getJSONObject(y).getString("$t"));
                     }
+
+
+//                    JSONArray imageURLJSON = friendJSON.getJSONObject("media").getJSONObject("photos").getJSONArray("photo");
+//                       .getLength().get(0).getString("$t");
+//                        .getJSONArray("photo");
+//
+//                    ArrayList<String> imageURL = new ArrayList<>();
+//                    for (int y = 0; y < photoJSON.length(); y++) {
+//                        imageURL.add(photoJSON.getJSONArray(y).get(0).toString());
+//                    }
+// 9/24
 // Photo array
 
 
 
                     Friend friend = new Friend(name, animal, size, sex, age, zip, email
- , imageURL
- );
+                            , imageURL
+                    );
                     friends.add(friend);
 
                 }

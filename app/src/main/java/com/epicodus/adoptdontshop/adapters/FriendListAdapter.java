@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.epicodus.adoptdontshop.R;
 import com.epicodus.adoptdontshop.models.Friend;
 import com.epicodus.adoptdontshop.ui.FriendDetailActivity;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
@@ -53,6 +54,7 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Fr
         @Bind(R.id.animalTextView) TextView mAnimalTextView;
         private Context mContext;
 
+
         public FriendViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -70,10 +72,11 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Fr
         }
 
         public void bindFriend(Friend friend) {
-// picasso image loader            Picasso.with(mContext).load(friend.getImageUrl()).into(mFriendImageView);
             mNameTextView.setText(friend.getName());
             mAgeTextView.setText("Age: " + friend.getAge());
             mAnimalTextView.setText(friend.getAnimal());
+            ArrayList<String> ImageURLList = (friend.getImageURL());
+            Picasso.with(mContext).load(ImageURLList.get(0)).into(mFriendImageView);
         }
     }
 }

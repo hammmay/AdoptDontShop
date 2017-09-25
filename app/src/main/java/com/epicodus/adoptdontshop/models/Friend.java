@@ -5,6 +5,7 @@ import org.parceler.Parcel;
 import java.util.ArrayList;
 
 @Parcel
+//public ArrayList<String> ImageURLList = new ArrayList<>();
 public class Friend {
     String mName;
     String mAnimal;
@@ -13,13 +14,13 @@ public class Friend {
     String mSex;
     String mAge;
     String mEmail;
-//    ArrayList<String> mImageURL = new ArrayList<>();
+    ArrayList<String> mImageURL = new ArrayList<>();
 
     public Friend() {}
 
     public Friend(String name, String animal, String size,
                   String sex, String age, String zip, String email
-//            , ArrayList<String> imageURL
+            , ArrayList<String> imageURL
     ) {
         this.mName = name;
         this.mAnimal = animal;
@@ -28,7 +29,7 @@ public class Friend {
         this.mSex = sex;
         this.mAge = age;
         this.mEmail = email;
-//        this.mImageURL = imageURL.get(0);
+        this.mImageURL = imageURL;
     }
 
     public String getName() {
@@ -57,8 +58,8 @@ public class Friend {
         return mEmail;
     }
 
-//    public ArrayList<String> getImageURL() {
-//        return mImageURL;
-//    }
+    public ArrayList<String> getImageURL() {
+        return mImageURL;
+    }
 
 }
