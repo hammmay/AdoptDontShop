@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "410616037851",
+    "firebase_url": "https://adoptdontshop-5674c.firebaseio.com",
+    "project_id": "adoptdontshop-5674c",
+    "storage_bucket": "adoptdontshop-5674c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:410616037851:android:5311c33ed73f0483",
+        "android_client_info": {
+          "package_name": "com.epicodus.adoptdontshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "410616037851-hrp6m10ea3ikf617bt7mg030qm53ep79.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.epicodus.adoptdontshop",
+            "certificate_hash": "e861ea160a33872c71178931df391fa36a0d0d8c"
+          }
+        },
+        {
+          "client_id": "410616037851-tniac8vnfn8tjmkcumv59eo0gh7374t0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABLctxANC64JWT9WqSCz3Br3dz0fX5yLE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "410616037851-tniac8vnfn8tjmkcumv59eo0gh7374t0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
