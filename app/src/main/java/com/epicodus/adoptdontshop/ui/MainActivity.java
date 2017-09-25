@@ -1,7 +1,9 @@
 package com.epicodus.adoptdontshop.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,16 +12,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
+import com.epicodus.adoptdontshop.Constants;
 import com.epicodus.adoptdontshop.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.findFriendsButton) Button mFindFriendsButton;
-    @Bind(R.id.locationEditText) EditText mLocationEditText;
-    @Bind(R.id.appNameTextView) TextView mAppNameTextView;
 
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+
+    @Bind(R.id.locationEditText) EditText mLocationEditText;
+    @Bind(R.id.findFriendsButton) Button mFindFriendsButton;
+    @Bind(R.id.appNameTextView) TextView mAppNameTextView;
     @Bind(R.id.findMissionButton) Button mFindMissionButton;
 
 
@@ -28,6 +34,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
         Typeface pacificoFont = Typeface.createFromAsset(getAssets(), "fonts/pacifico.ttf");
         mAppNameTextView.setTypeface(pacificoFont);
         mFindFriendsButton.setOnClickListener(this);
@@ -39,18 +49,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v == mFindFriendsButton) {
 
             String location = mLocationEditText.getText().toString();
-            if( mLocationEditText.getText().length() < 5 ) {
-                mLocationEditText.setError( "We can't find you a friend if we don't know where you are" );
-            }
-            else {
-                Intent intent = new Intent(MainActivity.this, FriendsListActivity.class);
-                intent.putExtra("location", location);
-                startActivity(intent);
-            }
+
+                if(!(location).equals("")) {
+                    addToSharedPreferences(location);
+                }
+            Intent intent = new Intent(MainActivity.this, FriendsListActivity.class);
+            intent.putExtra("location", location);
+            startActivity(intent);
         }
+
+//            if( mLocationEditText.getText().length() < 5 ) {
+//                mLocationEditText.setError( "We can't find you a friend if we don't know where you are" );
+//            }
+//            else {
+//                addToSharedPreferences(location);
+//                Intent intent = new Intent(MainActivity.this, FriendsListActivity.class);
+//                intent.putExtra("location", location);
+//                startActivity(intent);
+//            }
+//        }
         if(v == mFindMissionButton) {
             Intent intent = new Intent(MainActivity.this, MissionActivity.class);
             startActivity(intent);
         }
+    }
+
+    private void addToSharedPreferences(String location) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
     }
 }

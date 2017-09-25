@@ -1,11 +1,15 @@
 package com.epicodus.adoptdontshop.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
+import com.epicodus.adoptdontshop.Constants;
 import com.epicodus.adoptdontshop.R;
 import com.epicodus.adoptdontshop.adapters.FriendListAdapter;
 import com.epicodus.adoptdontshop.models.Friend;
@@ -21,6 +25,8 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class FriendsListActivity extends AppCompatActivity {
+    private SharedPreferences mSharedPreferences;
+    private String mRecentAddress;
     public static final String TAG = FriendsListActivity.class.getSimpleName();
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
@@ -37,8 +43,11 @@ public class FriendsListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
 
-        getFriends(location);
-
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+        if (mRecentAddress != null) {
+            getFriends(mRecentAddress);
+        }
     }
 
     private void getFriends(String location) {
