@@ -25,22 +25,18 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private DatabaseReference mSearchedLocationReference;
-    private ValueEventListener mSearchedLocationReferenceListener;
-
 //    private SharedPreferences mSharedPreferences;
 //    private SharedPreferences.Editor mEditor;
 
+    private DatabaseReference mSearchedLocationReference;
 
-    @Bind(R.id.locationEditText)
-    EditText mLocationEditText;
-    @Bind(R.id.findFriendsButton)
-    Button mFindFriendsButton;
-    @Bind(R.id.appNameTextView)
-    TextView mAppNameTextView;
-    @Bind(R.id.findMissionButton)
-    Button mFindMissionButton;
+    private ValueEventListener mSearchedLocationReferenceListener;
 
+    @Bind(R.id.findFriendsButton) Button mFindFriendsButton;
+    @Bind(R.id.locationEditText) EditText mLocationEditText;
+    @Bind(R.id.appNameTextView) TextView mAppNameTextView;
+    @Bind(R.id.findMissionButton) Button mFindMissionButton;
+    @Bind(R.id.savedFriendsButton) Button mSavedFriendsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,13 +68,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        Typeface pacificoFont = Typeface.createFromAsset(getAssets(), "fonts/pacifico.ttf");
+        mAppNameTextView.setTypeface(pacificoFont);
+
 //        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 //        mEditor = mSharedPreferences.edit();
 
-        Typeface pacificoFont = Typeface.createFromAsset(getAssets(), "fonts/pacifico.ttf");
-        mAppNameTextView.setTypeface(pacificoFont);
         mFindFriendsButton.setOnClickListener(this);
         mFindMissionButton.setOnClickListener(this);
+        mSavedFriendsButton.setOnClickListener(this);
+
     }
 
     @Override
@@ -92,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                if(!(location).equals("")) {
 //                    addToSharedPreferences(location);
 //                }
+
             Intent intent = new Intent(MainActivity.this, FriendsListActivity.class);
             intent.putExtra("location", location);
             startActivity(intent);
@@ -109,6 +109,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        }
         if (v == mFindMissionButton) {
             Intent intent = new Intent(MainActivity.this, MissionActivity.class);
+            startActivity(intent);
+        }
+        if (v == mSavedFriendsButton) {
+            Intent intent = new Intent(MainActivity.this, SavedFriendListActivity.class);
             startActivity(intent);
         }
     }

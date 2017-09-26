@@ -30,7 +30,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.adoptdontshop.ui.MainActivity" />
         </activity>
-        <activity android:name=".ui.FriendDetailActivity"></activity>
+        <activity android:name=".ui.FriendDetailActivity" />
+        <activity android:name=".ui.SavedFriendListActivity"></activity>
     </application>
 
 </manifest>

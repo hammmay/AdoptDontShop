@@ -90,7 +90,7 @@ public class FriendDetailFragment extends Fragment implements View.OnClickListen
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_FRIENDS);
             restaurantRef.push().setValue(mFriend);
-            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "You Saved A Friend!", Toast.LENGTH_SHORT).show();
         }
     }
 
