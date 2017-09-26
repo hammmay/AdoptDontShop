@@ -31,7 +31,7 @@ android {
         exclude 'META-INF/NOTICE'
         exclude 'META-INF/notice.txt'
     }
-    
+
     buildTypes {
         release {
             minifyEnabled false
@@ -47,8 +47,7 @@ android {
 
 
 dependencies {
-    compile 'org.parceler:parceler-api:1.1.6'
-    annotationProcessor 'org.parceler:parceler:1.1.6'
+
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -58,6 +57,7 @@ dependencies {
     androidTestCompile('com.android.support.test:runner:0.3') {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
+    compile 'org.parceler:parceler-api:1.1.6'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -67,10 +67,14 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
     compile 'com.android.support:support-v4:26.+'
     compile 'com.google.firebase:firebase-database:9.2.1'
+    compile 'com.firebaseui:firebase-ui-database:0.4.1'
+    compile 'com.google.firebase:firebase-auth:9.2.1'
     testCompile 'junit:junit:4.12'
     testCompile 'org.robolectric:robolectric:3.0'
     testCompile 'org.robolectric:shadows-support-v4:3.0'
-    compile 'com.firebaseui:firebase-ui-database:0.4.1'
+    annotationProcessor 'org.parceler:parceler:1.1.6'
 }
+
+
 
 apply plugin: 'com.google.gms.google-services'
