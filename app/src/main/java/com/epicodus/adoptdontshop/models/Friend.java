@@ -3,17 +3,18 @@ package com.epicodus.adoptdontshop.models;
 import org.parceler.Parcel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Parcel
 public class Friend {
-    String mName;
-    String mAnimal;
-    String mZip;
-    String mSize;
-    String mSex;
-    String mAge;
-    String mEmail;
-    ArrayList<String> mImageURL = new ArrayList<>();
+    String name;
+    String animal;
+    String zip;
+    String size;
+    String sex;
+    String age;
+    String email;
+    List<String> imageURL = new ArrayList<>();
 
     public Friend() {}
 
@@ -21,44 +22,45 @@ public class Friend {
                   String sex, String age, String zip, String email, ArrayList<String> imageURL)
     {
 
-        this.mName = name;
-        this.mAnimal = animal;
-        this.mZip = zip;
-        this.mSize = size;
-        this.mSex = sex;
-        this.mAge = age;
-        this.mEmail = email;
-        this.mImageURL = imageURL;
+        this.name = name;
+        this.animal = animal;
+        this.zip = zip;
+        this.size = size;
+        this.sex = sex;
+        this.age = age;
+        this.email = email;
+        this.imageURL = imageURL;
     }
 
     public String getName() {
-        return mName;
+        return name;
     }
 
-    public String getAnimal() { return mAnimal; }
+    public String getAnimal() { return animal; }
 
     public String getZip() {
-        return mZip;
+        return zip;
     }
 
     public String getSize() {
-        return mSize;
+        return size;
     }
 
     public String getSex(){
-        return mSex;
+        return sex;
     }
 
     public String getAge() {
-        return mAge;
+        return age;
     }
 
     public String getEmail() {
-        return mEmail;
+        return email;
     }
 
-    public ArrayList<String> getImageURL() {
-        return mImageURL;
+    public List<String> getImageURL() {
+        return imageURL;
     }
 
+    //revisit imageURL
 }

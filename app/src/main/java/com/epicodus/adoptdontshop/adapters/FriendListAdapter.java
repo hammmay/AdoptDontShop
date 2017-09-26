@@ -17,6 +17,7 @@ import com.squareup.picasso.Picasso;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -88,7 +89,7 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Fr
             mNameTextView.setText(friend.getName());
             mAgeTextView.setText("Age: " + friend.getAge());
             mAnimalTextView.setText(friend.getAnimal());
-            ArrayList<String> ImageURLList = (friend.getImageURL());
+            List<String> ImageURLList = (friend.getImageURL());
             Picasso.with(mContext).load(ImageURLList.get(0)).into(mFriendImageView);
         }
     }
