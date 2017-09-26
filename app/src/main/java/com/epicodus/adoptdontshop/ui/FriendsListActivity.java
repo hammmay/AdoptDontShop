@@ -25,13 +25,13 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class FriendsListActivity extends AppCompatActivity {
-    private SharedPreferences mSharedPreferences;
-    private String mRecentAddress;
+//    private SharedPreferences mSharedPreferences;
+//    private String mRecentAddress;
     public static final String TAG = FriendsListActivity.class.getSimpleName();
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
-    private FriendListAdapter mAdapter;;
 
+    private FriendListAdapter mAdapter;;
     public ArrayList<Friend> mFriends = new ArrayList<>();
 
     @Override
@@ -43,11 +43,11 @@ public class FriendsListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-        if (mRecentAddress != null) {
-            getFriends(mRecentAddress);
-        }
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+//        if (mRecentAddress != null) {
+//            getFriends(mRecentAddress);
+//        }
     }
 
     private void getFriends(String location) {

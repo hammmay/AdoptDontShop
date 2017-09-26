@@ -6,4 +6,5 @@ public class Constants {
     public static final String PETFINDER_BASE_URL = "http://api.petfinder.com/pet.find?";
     public static final String PETFINDER_LOCATION_QUERY_PARAMETER = "location";
     public static final String PREFERENCES_LOCATION_KEY = "location";
+    public static final String FIREBASE_CHILD_SEARCHED_LOCATION = "searchedLocation";
 }
