@@ -77,11 +77,13 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Fr
 
         public void bindFriend(Friend friend) {
 
-//            Picasso.with(mContext)
-//                    .load(friend.getImageURL())
+//            ArrayList<String> ImageURLList = (mFriend.getImageURL());
+//            String largeImageURL = ImageURLList.get(0).substring(0, ImageURLList.get(0).length() - 34).concat("o.jpg");
+//            Picasso.with(view.getContext())
+//                    .load(largeImageURL)
 //                    .resize(MAX_WIDTH, MAX_HEIGHT)
 //                    .centerCrop()
-//                    .into(mFriendImageView);
+//                    .into(mImageLabel);
 
             mNameTextView.setText(friend.getName());
             mAgeTextView.setText("Age: " + friend.getAge());

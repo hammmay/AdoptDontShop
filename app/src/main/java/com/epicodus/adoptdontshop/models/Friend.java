@@ -29,7 +29,6 @@ public class Friend {
         this.mAge = age;
         this.mEmail = email;
         this.mImageURL = imageURL;
-//        this.mImageURL = getLargeImageURL(imageURL);
     }
 
     public String getName() {
@@ -61,10 +60,5 @@ public class Friend {
     public ArrayList<String> getImageURL() {
         return mImageURL;
     }
-
-//    public String getLargeImageUrl(ArrayList<String> imageURL) {
-//        String largeImageUrl = imageURL.substring(0, imageURL.length() - 34).concat("o.jpg");
-//        return largeImageUrl;
-//    }
 
 }
