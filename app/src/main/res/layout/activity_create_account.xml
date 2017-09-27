@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.epicodus.adoptdontshop.ui.CreateAccountActivity"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorAccent">
 
     <LinearLayout
         android:orientation="vertical"
@@ -43,16 +43,27 @@
             android:textColorHint="@color/colorDivider"
             android:textSize="20sp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorTextIcons"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:text="*Password must be more than 5 characters"
+            android:id="@+id/passwordReqTextView"
+            android:layout_gravity="center_horizontal" />
+
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:background="@android:color/white"
             android:hint="Password"
             android:inputType="textPassword"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
-            android:layout_marginBottom="10dp"
             android:textColor="@android:color/black"
             android:textColorHint="@color/colorDivider"
             android:textSize="20sp" />
