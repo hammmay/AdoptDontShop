@@ -10,6 +10,8 @@ import com.epicodus.adoptdontshop.R;
 import com.epicodus.adoptdontshop.adapters.FirebaseFriendViewHolder;
 import com.epicodus.adoptdontshop.models.Friend;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -30,7 +32,14 @@ public class SavedFriendListActivity extends AppCompatActivity {
             setContentView(R.layout.activity_friends);
             ButterKnife.bind(this);
 
-            mFriendReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_FRIENDS);
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+
+            mFriendReference = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_FRIENDS)
+                    .child(uid);
+
             setUpFirebaseAdapter();
         }
 

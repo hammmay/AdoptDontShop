@@ -15,6 +15,7 @@ public class Friend {
     String age;
     String email;
     List<String> imageURL = new ArrayList<>();
+    private String pushId;
 
     public Friend() {}
 
@@ -62,5 +63,11 @@ public class Friend {
         return imageURL;
     }
 
-    //revisit imageURL
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
 }

@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.epicodus.adoptdontshop.Constants;
 import com.epicodus.adoptdontshop.R;
 import com.epicodus.adoptdontshop.models.Friend;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -86,10 +88,19 @@ public class FriendDetailFragment extends Fragment implements View.OnClickListen
             startActivity(emailIntent);
         }
         if (v == mSaveFriendButton) {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+
             DatabaseReference restaurantRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_FRIENDS);
-            restaurantRef.push().setValue(mFriend);
+                    .getReference(Constants.FIREBASE_CHILD_FRIENDS)
+                    .child(uid);
+
+            DatabaseReference pushRef = restaurantRef.push();
+            String pushId = pushRef.getKey();
+            mFriend.setPushId(pushId);
+            pushRef.setValue(mFriend);
+
             Toast.makeText(getContext(), "You Saved A Friend!", Toast.LENGTH_SHORT).show();
         }
     }
