@@ -6,7 +6,7 @@
 
         <ImageView
             android:layout_width="130dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:id="@+id/friendImageView"
             android:src="@drawable/petplaceholder"
             android:scaleType="centerCrop"/>
@@ -15,7 +15,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:background="#ffffff"
-        android:layout_height="match_parent"
+        android:layout_height="139dp"
         android:padding="10dp">
 
         <TextView
