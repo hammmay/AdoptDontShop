@@ -45,7 +45,7 @@ public class SavedFriendListActivity extends AppCompatActivity {
 
         private void setUpFirebaseAdapter() {
             mFirebaseAdapter = new FirebaseRecyclerAdapter<Friend, FirebaseFriendViewHolder>
-                    (Friend.class, R.layout.friend_list_item, FirebaseFriendViewHolder.class,
+                    (Friend.class, R.layout.friend_list_item_drag, FirebaseFriendViewHolder.class,
                             mFriendReference) {
 
                 @Override
