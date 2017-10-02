@@ -25,13 +25,15 @@ import java.util.List;
 
 import static com.epicodus.adoptdontshop.R.id.ageTextView;
 import static com.epicodus.adoptdontshop.R.id.animalTextView;
+import static com.epicodus.adoptdontshop.R.id.friendImageView;
 
 public class FirebaseFriendViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-//    private static final int MAX_WIDTH = 200;
-//    private static final int MAX_HEIGHT = 200;
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
 
     View mView;
     Context mContext;
+    public ImageView mFriendImageView;
 
     public FirebaseFriendViewHolder(View itemView) {
         super(itemView);
@@ -41,28 +43,27 @@ public class FirebaseFriendViewHolder extends RecyclerView.ViewHolder implements
     }
 
     public void bindFriend(Friend friend) {
-        ImageView friendImageView = (ImageView) mView.findViewById(R.id.friendImageView);
+        mFriendImageView = (ImageView) mView.findViewById(friendImageView);
+//        ImageView friendImageView = (ImageView) mView.findViewById(R.id.friendImageView);
         TextView nameTextView = (TextView) mView.findViewById(R.id.friendNameTextView);
         TextView animalTextView = (TextView) mView.findViewById(R.id.animalTextView);
         TextView ageTextView = (TextView) mView.findViewById(R.id.ageTextView);
 
 
-//        List<String> ImageURLList = (friend.getImageURL());
-//        String largeImageURL = ImageURLList.get(0).substring(0, ImageURLList.get(0).length() - 34).concat("o.jpg");
-//        Picasso.with(mContext)
-//                .load(largeImageURL)
-//                .resize(MAX_WIDTH, MAX_HEIGHT)
-//                .centerCrop()
-//                .into(friendImageView);
+        List<String> ImageURLList = (friend.getImageURL());
+        String largeImageURL = ImageURLList.get(0).substring(0, ImageURLList.get(0).length() - 34).concat("o.jpg");
+        Picasso.with(mContext)
+                .load(largeImageURL)
+                .resize(MAX_WIDTH, MAX_HEIGHT)
+                .centerCrop()
+                .into(mFriendImageView);
 
         nameTextView.setText(friend.getName());
         animalTextView.setText(friend.getAnimal());
         ageTextView.setText("Age: " + friend.getAge());
-        List<String> ImageURLList = (friend.getImageURL());
-        Picasso.with(mContext).load(ImageURLList.get(0)).into(friendImageView);
+//        List<String> ImageURLList = (friend.getImageURL());
+//        Picasso.with(mContext).load(ImageURLList.get(0)).into(friendImageView);
     }
-
-
 
 
     @Override
