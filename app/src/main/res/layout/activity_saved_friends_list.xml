@@ -4,14 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.FriendsListActivity">
-    <!--android:paddingBottom="25dp"-->
-    <!--android:paddingLeft="16dp"-->
-    <!--android:paddingRight="16dp"-->
-    <!--android:paddingTop="25dp"-->
 
     <fragment
         android:id="@+id/fragmentFriendList"
-        android:name="com.epicodus.adoptdontshop.ui.FriendListFragment"
+        android:name="com.epicodus.adoptdontshop.ui.SavedFriendListFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:layout="@layout/fragment_friend_list" />

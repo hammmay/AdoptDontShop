@@ -21,53 +21,6 @@ import org.parceler.Parcels;
 import java.util.Collections;
 import java.util.ArrayList;
 
-//public class FirebaseFriendListAdapter extends FirebaseRecyclerAdapter<Friend, FirebaseFriendViewHolder> implements ItemTouchHelperAdapter {
-//
-//    private ChildEventListener mChildEventListener;
-//    private ArrayList<Friend> mFriends = new ArrayList<>();
-//
-//
-//    public FirebaseFriendListAdapter(Class<Friend> modelClass, int modelLayout,
-//                                     Class<FirebaseFriendViewHolder> viewHolderClass,
-//                                     Query ref, OnStartDragListener onStartDragListener, Context context) {
-//
-//        super(modelClass, modelLayout, viewHolderClass, ref);
-//        mRef = ref.getRef();
-//        mOnStartDragListener = onStartDragListener;
-//        mContext = context;
-//    }
-//
-//    @Override
-//    protected void populateViewHolder(final FirebaseFriendViewHolder viewHolder, Friend model, int position) {
-//        viewHolder.bindFriend(model);
-//        viewHolder.mFriendImageView.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
-//                    mOnStartDragListener.onStartDrag(viewHolder);
-//                }
-//                return false;
-//            }
-//        });
-//    }
-//
-//    @Override
-//    public boolean onItemMove(int fromPosition, int toPosition) {
-//        notifyItemMoved(fromPosition, toPosition);
-//        return false;
-//    }
-//
-//    @Override
-//    public void onItemDismiss(int position) {
-//        getRef(position).removeValue();
-//    }
-//}
-
-
-
-
-
-
 public class FirebaseFriendListAdapter extends FirebaseRecyclerAdapter<Friend, FirebaseFriendViewHolder> implements ItemTouchHelperAdapter {
     private DatabaseReference mRef;
     private OnStartDragListener mOnStartDragListener;
