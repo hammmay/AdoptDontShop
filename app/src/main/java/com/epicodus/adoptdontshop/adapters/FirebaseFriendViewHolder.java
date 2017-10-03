@@ -27,7 +27,7 @@ import static com.epicodus.adoptdontshop.R.id.ageTextView;
 import static com.epicodus.adoptdontshop.R.id.animalTextView;
 import static com.epicodus.adoptdontshop.R.id.friendImageView;
 
-public class FirebaseFriendViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseFriendViewHolder extends RecyclerView.ViewHolder {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
 
@@ -39,12 +39,10 @@ public class FirebaseFriendViewHolder extends RecyclerView.ViewHolder implements
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
     }
 
     public void bindFriend(Friend friend) {
         mFriendImageView = (ImageView) mView.findViewById(friendImageView);
-//        ImageView friendImageView = (ImageView) mView.findViewById(R.id.friendImageView);
         TextView nameTextView = (TextView) mView.findViewById(R.id.friendNameTextView);
         TextView animalTextView = (TextView) mView.findViewById(R.id.animalTextView);
         TextView ageTextView = (TextView) mView.findViewById(R.id.ageTextView);
@@ -61,35 +59,5 @@ public class FirebaseFriendViewHolder extends RecyclerView.ViewHolder implements
         nameTextView.setText(friend.getName());
         animalTextView.setText(friend.getAnimal());
         ageTextView.setText("Age: " + friend.getAge());
-//        List<String> ImageURLList = (friend.getImageURL());
-//        Picasso.with(mContext).load(ImageURLList.get(0)).into(friendImageView);
-    }
-
-
-    @Override
-    public void onClick(View view) {
-        final ArrayList<Friend> friends = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_FRIENDS);
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    friends.add(snapshot.getValue(Friend.class));
-                }
-
-                int itemPosition = getLayoutPosition();
-
-                Intent intent = new Intent(mContext, FriendDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("friends", Parcels.wrap(friends));
-
-                mContext.startActivity(intent);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
     }
 }

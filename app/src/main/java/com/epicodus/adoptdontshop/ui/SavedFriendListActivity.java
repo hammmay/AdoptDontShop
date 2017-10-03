@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -27,8 +28,7 @@ public class SavedFriendListActivity extends AppCompatActivity implements OnStar
     private FirebaseFriendListAdapter mFirebaseAdapter;
     private ItemTouchHelper mItemTouchHelper;
 
-    @Bind(R.id.recyclerView)
-    RecyclerView mRecyclerView;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +44,15 @@ public class SavedFriendListActivity extends AppCompatActivity implements OnStar
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
 
-        mFriendReference = FirebaseDatabase
-                .getInstance()
+        Query query = FirebaseDatabase.getInstance()
+
                 .getReference(Constants.FIREBASE_CHILD_FRIENDS)
-                .child(uid);
+                .child(uid)
+                .orderByChild(Constants.FIREBASE_QUERY_INDEX);
 
         mFirebaseAdapter = new FirebaseFriendListAdapter (Friend.class,
                 R.layout.friend_list_item_drag, FirebaseFriendViewHolder.class,
-                        mFriendReference, this, this);
+                        query, this, this);
 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -63,15 +64,14 @@ public class SavedFriendListActivity extends AppCompatActivity implements OnStar
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mFirebaseAdapter.cleanup();
-    }
-
-    @Override
     public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
         mItemTouchHelper.startDrag(viewHolder);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mFirebaseAdapter.cleanup();
+    }
 
 }

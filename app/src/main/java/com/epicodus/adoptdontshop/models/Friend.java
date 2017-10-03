@@ -16,6 +16,7 @@ public class Friend {
     String email;
     List<String> imageURL = new ArrayList<>();
     private String pushId;
+    String index;
 
     public Friend() {}
 
@@ -31,6 +32,7 @@ public class Friend {
         this.age = age;
         this.email = email;
         this.imageURL = imageURL;
+        this.index = "not_specified";
     }
 
     public String getName() {
@@ -70,4 +72,14 @@ public class Friend {
     public void setPushId(String pushId) {
         this.pushId = pushId;
     }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
+    }
+
+
 }
