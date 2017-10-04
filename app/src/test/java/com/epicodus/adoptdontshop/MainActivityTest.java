@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.widget.TextView;
 
-import com.epicodus.adoptdontshop.ui.FriendsListActivity;
+import com.epicodus.adoptdontshop.ui.FriendListActivity;
 import com.epicodus.adoptdontshop.ui.MainActivity;
 
 import org.junit.Before;
@@ -39,7 +39,7 @@ public class MainActivityTest {
     @Test
     public void secondActivityStarted() {
         activity.findViewById(R.id.findFriendsButton).performClick();
-        Intent expectedIntent = new Intent(activity, FriendsListActivity.class);
+        Intent expectedIntent = new Intent(activity, FriendListActivity.class);
         ShadowActivity shadowActivity = org.robolectric.Shadows.shadowOf(activity);
         Intent actualIntent = shadowActivity.getNextStartedActivity();
         assertTrue(actualIntent.filterEquals(expectedIntent));

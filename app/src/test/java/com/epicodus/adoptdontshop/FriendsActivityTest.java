@@ -3,7 +3,7 @@ package com.epicodus.adoptdontshop;
 import android.os.Build;
 import android.widget.ListView;
 
-import com.epicodus.adoptdontshop.ui.FriendsListActivity;
+import com.epicodus.adoptdontshop.ui.FriendListActivity;
 
 import org.junit.Before;
 
@@ -21,12 +21,12 @@ import static junit.framework.Assert.assertNotNull;
 
 
 public class FriendsActivityTest {
-    private FriendsListActivity activity;
+    private FriendListActivity activity;
     private ListView mFriendListView;
 
     @Before
     public void setup() {
-        activity = Robolectric.setupActivity(FriendsListActivity.class);
+        activity = Robolectric.setupActivity(FriendListActivity.class);
 //        mFriendListView = (ListView) activity.findViewById(R.id.listView);
     }
 
