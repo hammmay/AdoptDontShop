@@ -91,12 +91,12 @@ public class FriendDetailFragment extends Fragment implements View.OnClickListen
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             String uid = user.getUid();
 
-            DatabaseReference restaurantRef = FirebaseDatabase
+            DatabaseReference friendRef = FirebaseDatabase
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_FRIENDS)
                     .child(uid);
 
-            DatabaseReference pushRef = restaurantRef.push();
+            DatabaseReference pushRef = friendRef.push();
             String pushId = pushRef.getKey();
             mFriend.setPushId(pushId);
             pushRef.setValue(mFriend);

@@ -13,6 +13,5 @@ public class MissionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mission);
 
-    //    Intent intent = getIntent();
     }
 }
