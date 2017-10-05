@@ -82,6 +82,7 @@ public class FirebaseFriendListAdapter extends FirebaseRecyclerAdapter<Friend, F
                 intent.putExtra("position", viewHolder.getAdapterPosition());
                 intent.putExtra("friends", Parcels.wrap(mFriends));
                 mContext.startActivity(intent);
+
             }
         });
     }

@@ -57,7 +57,7 @@ public class FriendDetailFragment extends Fragment implements View.OnClickListen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mFriend = Parcels.unwrap(getArguments().getParcelable(Constants.EXTRA_KEY_FRIENDS));
+        mFriends = Parcels.unwrap(getArguments().getParcelable(Constants.EXTRA_KEY_FRIENDS));
         mPosition = getArguments().getInt(Constants.EXTRA_KEY_POSITION);
         mFriend = mFriends.get(mPosition);
     }
