@@ -40,11 +40,16 @@ public class FriendDetailFragment extends Fragment implements View.OnClickListen
     private static final int MAX_HEIGHT = 300;
 
     private Friend mFriend;
+    private ArrayList<Friend> mFriends;
+    private int mPosition;
 
-    public static FriendDetailFragment newInstance(Friend friend) {
+    public static FriendDetailFragment newInstance(ArrayList<Friend> friends, Integer position) {
         FriendDetailFragment friendDetailFragment = new FriendDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("friend", Parcels.wrap(friend));
+
+        args.putParcelable(Constants.EXTRA_KEY_FRIENDS, Parcels.wrap(friends));
+        args.putInt(Constants.EXTRA_KEY_POSITION, position);
+
         friendDetailFragment.setArguments(args);
         return friendDetailFragment;
     }
@@ -52,7 +57,9 @@ public class FriendDetailFragment extends Fragment implements View.OnClickListen
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mFriend = Parcels.unwrap(getArguments().getParcelable("friend"));
+        mFriend = Parcels.unwrap(getArguments().getParcelable(Constants.EXTRA_KEY_FRIENDS));
+        mPosition = getArguments().getInt(Constants.EXTRA_KEY_POSITION);
+        mFriend = mFriends.get(mPosition);
     }
 
 
