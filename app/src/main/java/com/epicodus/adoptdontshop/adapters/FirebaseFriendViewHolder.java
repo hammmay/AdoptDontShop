@@ -23,8 +23,6 @@ import org.parceler.Parcels;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.epicodus.adoptdontshop.R.id.ageTextView;
-import static com.epicodus.adoptdontshop.R.id.animalTextView;
 import static com.epicodus.adoptdontshop.R.id.friendImageView;
 
 public class FirebaseFriendViewHolder extends RecyclerView.ViewHolder {
@@ -42,7 +40,7 @@ public class FirebaseFriendViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bindFriend(Friend friend) {
-        mFriendImageView = (ImageView) mView.findViewById(friendImageView);
+        mFriendImageView = (ImageView) mView.findViewById(R.id.friendImageView);
         TextView nameTextView = (TextView) mView.findViewById(R.id.friendNameTextView);
         TextView animalTextView = (TextView) mView.findViewById(R.id.animalTextView);
         TextView ageTextView = (TextView) mView.findViewById(R.id.ageTextView);

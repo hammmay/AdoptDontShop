@@ -10,7 +10,7 @@ public class SavedFriendListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_saved_friends_list);
+        setContentView(R.layout.activity_saved_friend_list);
     }
 
 }
