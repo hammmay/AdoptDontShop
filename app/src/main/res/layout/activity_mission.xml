@@ -11,7 +11,7 @@
         android:id="@+id/missionTextView"
         android:layout_width="335dp"
         android:layout_height="482dp"
-        android:text="The AdoptDontShop App was built to help good people find great friends that need homes. Online sales of pets from animal mills have resulted in legalized animal abuse, and overpopulation of shelters. Ultimately, this widespread overpopulation causes the death of MILLIONS of healthy, friendly companions every year in the US. For only the cost of an adoption fee, you can find a wonderful companion who is waiting for you. Every time you adopt a friend, you're not only saving their life, but the lives of many future animals who would otherwise be born and then thrown away to feed the demand for young animals. Save your wallet and a best friend today!"
+        android:text="The AdoptDontShop App was built to help good people find great friends that need homes. Pet sales encourages animal mills which results in abuse and overpopulation. Ultimately, this widespread overpopulation causes the death of over 1 million healthy, friendly companions every year in the US. For only the cost of an adoption fee, you can find a wonderful companion who is waiting for you. Every time you adopt a friend, you're not only saving their life, but the lives of many future animals who would otherwise be born and often abandoned to feed the demand for young animals. Be one of the 3 million+ Americans who have adopted this year and find your best friend today!"
         android:textSize="19sp"
         android:gravity="center"
         android:textStyle="bold"

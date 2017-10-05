@@ -17,7 +17,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="AdoptDontShop"
-        android:layout_marginTop="147dp"
         android:textColor="@color/colorTextIcons"
         android:textSize="45sp"
         android:textStyle="bold"
@@ -36,10 +35,10 @@
         android:paddingBottom="2dp"
         android:paddingRight="15dp"
         android:paddingLeft="15dp"
-        android:layout_marginBottom="70dp"
+        android:visibility="visible"
         android:layout_above="@+id/findMissionButton"
         android:layout_centerHorizontal="true"
-        android:visibility="visible" />
+        android:layout_marginBottom="13dp" />
 
     <Button
         android:id="@+id/findMissionButton"
